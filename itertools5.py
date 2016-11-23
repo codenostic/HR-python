@@ -20,6 +20,7 @@ print(max(list(map(func, possible_combinations))))
 '''
 nice question and great implementation. here is another way to do it. looks neat
 check out the usage of *argument this is very useful
+*argument is the way to pass multiple arguments in a function. 
 
 from itertools import *
 
