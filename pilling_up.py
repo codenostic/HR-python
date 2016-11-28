@@ -37,37 +37,55 @@ elseif RM > LM then we check max(list[:-1]) < RM and new list = list[:-1]
  check this recursively and if true then print yes else no
 '''
 
+#def pileup_possible(L):
+#    '''
+#    pileup_possible is a function that if vertical pileup of cubes is possible. 
+#    bascially checks that leftmost or rightmost integers are highest then any one inside the list
+#    Input - list of numbers 
+#    output - True of False 
+#    '''
+#    
+#    if len(L) == 1:
+#        return True
+#    elif len(L) == 2:
+#        return True
+#    if len(L) == 3 and (L[1] > L[0] or L[1] > L[2]):
+#        return False
+#    else: 
+#        return True
+#    if L[0] == L[-1]:
+#        if (max(L[1:-1]) < L[0]):
+#            pileup_possible(L[1:-1])
+#        else:
+#            return False
+#    elif L[0] > L[-1]:
+#        if max(L[1:]) < L[0]:
+#            pileup_possible(L[1:])
+#        else:
+#            return False
+#    elif L[0] < L[-1]:
+#        if max(L[:-1]) < L:
+#            pileup_possible(L[:-1])
+#        else:
+#            return False
+
 def pileup_possible(L):
     '''
-    pileup_possible is a function that if vertical pileup of cubes is possible. 
-    bascially checks that leftmost or rightmost integers are highest then any one inside the list
-    Input - list of numbers 
-    output - True of False 
+    input - list L
+    check if pileup possible 
     '''
-    
     if len(L) == 1:
         return True
     elif len(L) == 2:
         return True
-    if len(L) == 3 and (L[1] > L[0] or L[1] > L[2]):
+    elif len(L) == 3 and (L[1] > L[0] and L[1] > L[2]):
         return False
     else: 
-        return True
-    if L[0] == L[-1]:
-        if (max(L[1:-1]) < L[0]):
-            pileup_possible(L[1:-1])
-        else:
-            return False
-    elif L[0] > L[-1]:
-        if max(L[1:]) < L[0]:
-            pileup_possible(L[1:])
-        else:
-            return False
-    elif L[0] < L[-1]:
-        if max(L[:-1]) < L:
-            pileup_possible(L[:-1])
-        else:
-            return False
+        for i in range(1,len(L)-1):
+            if L[i] > L[i+1] and L[i] > L[i-1]:
+                return False
+            else: 
+                return True
         
 # main starts here 
 T = int(input()) # number of test cases 
