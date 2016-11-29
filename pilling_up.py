@@ -98,3 +98,11 @@ for _ in range(T):
         print('No')
         
         
+
+'''
+wow, did it and it is what some people have also done so looks like it works. 
+But learnt another collections = deque - https://docs.python.org/2/library/collections.html#collections.deque
+looks pretty interesting it is short for double-ended queue and is generalization of stack and queue
+
+'''
+        
