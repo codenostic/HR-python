@@ -17,13 +17,19 @@ def zipped(*args):
     Input - args 
     output - list of tuples 
     '''
-    pass # remove this when you add code     
-
-
+    zip_lists = [list(a) for a in args]
+    result = []
+    for i in range(len(zip_lists[0])):
+        temp_list = []
+        for x in zip_lists:
+            temp_list = temp_list +[x[i]]
+        result = result + [temp_list]
+    return result
 
 # main function Here 
 
 num_students, marks_lists = map(int, input().split())
 marks_matrix = [list(map(float, input().split())) for _ in range(marks_lists)]
 for marks_sum in list(map(sum, zipped(*marks_matrix))):
-    print(".1f"%(marks_sum/marks_lists))
+    print(marks_sum/marks_lists)
+    
